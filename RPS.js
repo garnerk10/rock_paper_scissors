@@ -67,4 +67,4 @@ Computer's score = ${comScore}
     else{console.log(`It's a draw!`)}
 };
 
-playMatch(5);
+playMatch(7);
