@@ -1,0 +1,31 @@
+html {
+    font-size: 16;
+}
+
+body {
+    text-align: center;
+}
+
+.selections {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.button {
+    width: 25%;
+}
+
+.button img {
+    max-width: 100%;
+}
+
+.results {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
