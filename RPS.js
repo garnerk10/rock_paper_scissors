@@ -42,7 +42,9 @@ const playGame = (playerSelection, computerSelection) => {
         return "You win! Scissors beats paper!"
     } else if (yourPick == "scissors" && computerSelection == "rock"){
         computer_score++;
-        return "You lose... rock beats scissors."}
+        return "You lose... rock beats scissors."};
+
+
 };
 
 let playerSelection = ""
@@ -103,6 +105,7 @@ let pick_rock = () => {
     comp_score.innerText = computer_score;
     getImg(computerSelection);
     comp_img.style.border = "1px solid black";
+    again();
 };
 
 rock_button.addEventListener("click", pick_rock);
@@ -116,6 +119,7 @@ let pick_paper = () => {
     comp_score.innerText = computer_score;
     getImg(computerSelection);
     comp_img.style.border = "1px solid black";
+    again();
 };
 
 paper_button.addEventListener("click", pick_paper);
@@ -129,6 +133,41 @@ let pick_scissors = () => {
     comp_score.innerText = computer_score;
     getImg(computerSelection);
     comp_img.style.border = "1px solid black";
+    again();
 };
 
 scissors_button.addEventListener("click", pick_scissors);
+
+//once either computer or player gets 5 wins
+const play_again = document.getElementsByClassName('play_again');
+const again_button = document.getElementById('again_button');
+const again_text = document.getElementById('again_text');
+const selections = document.getElementsByClassName('selections');
+const computer = document.getElementsByClassName('computer');
+const results = document.getElementsByClassName('results');
+
+const again = () => {
+    if(player_score === 5 || computer_score === 5){
+        selections.display = "none";
+        computer.display = "none";
+        results.display = "none";
+        if(player_score === 5){
+            play_again.display = "flex";
+        } else if(computer_score === 5){
+            again_text.innerText = "You lose...";
+            play_again.display = "flex";
+        };
+        console.log('im working');
+    };
+};
+
+const restart = () => {
+    player_score = 0;
+    computer_score = 0;
+    play_again.display = "none";
+    selections.display = "flex";
+    computer.display = "flex";
+    results.display = "flex";
+};
+
+again_button.addEventListener("click", restart);
