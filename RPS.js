@@ -139,35 +139,39 @@ let pick_scissors = () => {
 scissors_button.addEventListener("click", pick_scissors);
 
 //once either computer or player gets 5 wins
-const play_again = document.getElementsByClassName('play_again');
+const play_again = document.getElementById('play_again');
 const again_button = document.getElementById('again_button');
 const again_text = document.getElementById('again_text');
-const selections = document.getElementsByClassName('selections');
-const computer = document.getElementsByClassName('computer');
-const results = document.getElementsByClassName('results');
+const selections = document.getElementById('selections');
+const computer = document.getElementById('computer');
+const results = document.getElementById('results');
 
 const again = () => {
     if(player_score === 5 || computer_score === 5){
-        selections.display = "none";
-        computer.display = "none";
-        results.display = "none";
+        selections.style.display = "none";
+        computer.style.display = "none";
+        results.style.display = "none";
         if(player_score === 5){
-            play_again.display = "flex";
+            play_again.style.display = "flex";
         } else if(computer_score === 5){
             again_text.innerText = "You lose...";
-            play_again.display = "flex";
+            play_again.style.display = "flex";
         };
-        console.log('im working');
     };
 };
 
 const restart = () => {
     player_score = 0;
     computer_score = 0;
-    play_again.display = "none";
-    selections.display = "flex";
-    computer.display = "flex";
-    results.display = "flex";
+    play_again.style.display = "none";
+    selections.style.display = "flex";
+    computer.style.display = "flex";
+    results.style.display = "flex";
+    your_score.innerText = player_score;
+    comp_score.innerText = computer_score;
+    comp_img.src = "";
+    outcome.innerText = "";
+    comp_img.style.border = "";
 };
 
 again_button.addEventListener("click", restart);
